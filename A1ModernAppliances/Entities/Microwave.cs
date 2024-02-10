@@ -2,7 +2,7 @@
 
 namespace ModernAppliances.Entities
 {
-    internal class Microwave : Appliance
+    internal class Microwave : Abstract.Appliance
     {
         /// <summary>
         /// Constant for kitchen room type

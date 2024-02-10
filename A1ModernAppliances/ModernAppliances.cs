@@ -32,16 +32,16 @@ namespace ModernAppliances
         /// <summary>
         /// Holds list of appliances
         /// </summary>
-        private List<Appliance> appliances;
+        private List<Entities.Abstract.Appliance> appliances;
 
         /// <summary>
         /// Provides immutable list of appliances
         /// </summary>
-        public List<Appliance> Appliances
+        public List<Entities.Abstract.Appliance> Appliances
         {
             get
             {
-                return new List<Appliance>(appliances);
+                return new List<Entities.Abstract.Appliance>(appliances);
             }
         }
 
@@ -186,14 +186,14 @@ namespace ModernAppliances
         /// Reads appliances from text file
         /// </summary>
         /// <returns>List of appliances</returns>
-        private List<Appliance> ReadAppliances()
+        private List<Entities.Abstract.Appliance> ReadAppliances()
         {
-            List<Appliance> appliances = new List<Appliance>();
+            List<Entities.Abstract.Appliance> appliances = new List<Entities.Abstract.Appliance>();
             string[] lines = File.ReadAllLines(APPLIANCES_TEXT_FILE);
 
             foreach (string line in lines)
             {
-                Appliance? appliance = this.CreateApplianceFromLine(line);
+                Entities.Abstract.Appliance? appliance = this.CreateApplianceFromLine(line);
 
                 if (appliance != null)
                 {
@@ -209,14 +209,14 @@ namespace ModernAppliances
         /// </summary>
         /// <param name="line">Line to parse</param>
         /// <returns>Appliance object (or null if line is invalid)</returns>
-        private Appliance? CreateApplianceFromLine(string line)
+        private Entities.Abstract.Appliance? CreateApplianceFromLine(string line)
         {
             string[] parts = line.Split(';');
 
             string firstDigitStr = line.Substring(0, 1);
             short firstDigit = short.Parse(firstDigitStr);
 
-            Appliance? appliance;
+            Entities.Abstract.Appliance? appliance;
 
             if (firstDigit == 1)
             {
@@ -348,7 +348,7 @@ namespace ModernAppliances
         /// </summary>
         /// <param name="appliances">List of appliances</param>
         /// <param name="max">Maximum number of appliances to display (0 is unlimited)</param>
-        public void DisplayAppliancesFromList(List<Appliance> appliances, int max)
+        public void DisplayAppliancesFromList(List<Entities.Abstract.Appliance> appliances, int max)
         {
             if (appliances.Count > 0)
             {
@@ -358,7 +358,7 @@ namespace ModernAppliances
                 // Display found appliances until either end of list is reached or number of appliances requested is shown.
                 for (int i = 0; i < appliances.Count && (max == 0 || i < max); i++)
                 {
-                    Appliance appliance = appliances[i];
+                    Entities.Abstract.Appliance appliance = appliances[i];
                     Console.WriteLine(appliance);
                     Console.WriteLine();
                 }

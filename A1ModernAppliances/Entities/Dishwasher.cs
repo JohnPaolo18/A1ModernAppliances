@@ -5,7 +5,7 @@ namespace ModernAppliances.Entities
     /// <summary>
     /// Represents a dishwasher
     /// </summary>
-    internal class Dishwasher : Appliance
+    internal class Dishwasher : Abstract.Appliance
     {
         /// <summary>
         /// Constant for quietest sound rating
