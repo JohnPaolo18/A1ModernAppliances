@@ -212,6 +212,41 @@ namespace ModernAppliances
         /// </summary>
         public override void DisplayDishwashers()
         {
+
+            //Console.WriteLine("Possible options:");
+            //Console.WriteLine("0 - Any");
+            //Console.WriteLine("1 - Quietest");
+            //Console.WriteLine("2 - Quieter");
+            //Console.WriteLine("3 - Quiet");
+            //Console.WriteLine("4 - Moderate");
+
+            Console.WriteLine("Enter the sound rating of the dishwasher: Qt (Quietest), Qr (Quieter), Qu(Quiet) or M (Moderate): ");
+            string soundRating = Console.ReadLine();
+
+            List<Appliance> found = new List<Appliance>();
+
+            foreach (Appliance appliance in Appliances)
+            {
+                if (appliance is Dishwasher dishwasher)
+                {
+                    if (soundRating == "Qt" || soundRating == "Qr" || soundRating == "Qu" || soundRating == "M")
+                    {
+                        if (dishwasher.SoundRating == soundRating)
+                        {
+                            found.Add(dishwasher);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid sound rating option.");
+                        return;
+                    }
+                }
+            }
+
+            Console.WriteLine("Matching dishwashers: ");
+            DisplayAppliancesFromList(found, 0);
+
             // Write "Possible options:"
 
             // Write "0 - Any"
@@ -227,27 +262,27 @@ namespace ModernAppliances
             // Create variable that holds sound rating
 
             // Test input is "0"
-                // Assign "Any" to sound rating variable
+            // Assign "Any" to sound rating variable
             // Test input is "1"
-                // Assign "Qt" to sound rating variable
+            // Assign "Qt" to sound rating variable
             // Test input is "2"
-                // Assign "Qr" to sound rating variable
+            // Assign "Qr" to sound rating variable
             // Test input is "3"
-                // Assign "Qu" to sound rating variable
+            // Assign "Qu" to sound rating variable
             // Test input is "4"
-                // Assign "M" to sound rating variable
+            // Assign "M" to sound rating variable
             // Otherwise (input is something else)
-                // Write "Invalid option."
-                // Return to calling method
+            // Write "Invalid option."
+            // Return to calling method
 
             // Create variable that holds list of found appliances
 
             // Loop through Appliances
-                // Test if current appliance is dishwasher
-                    // Down cast current Appliance to Dishwasher
+            // Test if current appliance is dishwasher
+            // Down cast current Appliance to Dishwasher
 
-                    // Test sound rating is "Any" or equals soundrating for current dishwasher
-                        // Add current appliance in list to found list
+            // Test sound rating is "Any" or equals soundrating for current dishwasher
+            // Add current appliance in list to found list
 
             // Display found appliances (up to max. number inputted)
             // DisplayAppliancesFromList(found, 0);
