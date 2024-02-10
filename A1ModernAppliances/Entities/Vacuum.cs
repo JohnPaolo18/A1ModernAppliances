@@ -5,7 +5,7 @@ namespace ModernAppliances.Entities
     /// <summary>
     /// Represents a Vacuum
     /// </summary>
-    internal class Vacuum : Appliance
+    internal class Vacuum : Abstract.Appliance
     {
         /// <summary>
         /// Field for vacuum grade

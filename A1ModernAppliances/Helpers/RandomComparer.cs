@@ -5,7 +5,7 @@ namespace ModernAppliances.Helpers
     /// <summary>
     /// Random comparer to randomly sort list.
     /// </summary>
-    internal class RandomComparer : IComparer<Appliance>
+    internal class RandomComparer : IComparer<Entities.Abstract.Appliance>
     {
         private readonly Random _random = new Random();
 
@@ -15,7 +15,7 @@ namespace ModernAppliances.Helpers
         /// <param name="x">First item</param>
         /// <param name="y">Second item</param>
         /// <returns>Number indicating if x should be before, after, or at the same position as y</returns>
-        public int Compare(Appliance x, Appliance y)
+        public int Compare(Entities.Abstract.Appliance x, Entities.Abstract.Appliance y)
         {
             if (x == y)
             {

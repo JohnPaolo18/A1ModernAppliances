@@ -5,7 +5,7 @@ namespace ModernAppliances.Entities
     /// <summary>
     /// Represents a refrigerator
     /// </summary>
-    internal class Refrigerator : Appliance
+    internal class Refrigerator : Abstract.Appliance
     {
         /// <summary>
         /// Field that holds number of fridge doors
