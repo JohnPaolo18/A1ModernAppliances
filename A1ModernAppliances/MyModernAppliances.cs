@@ -23,11 +23,7 @@ using ModernAppliances.Helpers;
 
 namespace ModernAppliances
 {
-    /// <summary>
-    /// Manager class for Modern Appliances
-    /// </summary>
-    /// <remarks>Author: </remarks>
-    /// <remarks>Date: </remarks>
+    
     internal class MyModernAppliances : ModernAppliances
     {
         /// <summary>
