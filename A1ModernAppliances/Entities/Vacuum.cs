@@ -32,6 +32,8 @@ namespace ModernAppliances.Entities
             get { return _batteryVoltage; }
         }
 
+        public int Voltage { get; internal set; }
+
         /// <summary>
         /// Constructs Vacuum object
         /// </summary>
