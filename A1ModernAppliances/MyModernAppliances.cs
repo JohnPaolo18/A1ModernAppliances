@@ -259,7 +259,7 @@ namespace ModernAppliances
         /// </summary>
 
         //Paolo Bermudez
-        //Completed tasks: DisplaayMicrowaves and Checkout methid
+        //Completed tasks: DisplayMicrowaves and Checkout method
         //Displayed the microwave appliance and displayed the checkout to user
         //Feb 11, 2024
         public override void DisplayMicrowaves()
