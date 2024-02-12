@@ -50,19 +50,25 @@ namespace ModernAppliances
         public override void Find()
         {
             // Write "Enter brand to search for:"
-
+            Console.WriteLine("Enter brand to search for: ");
             // Create string variable to hold entered brand
+            string Brand;
             // Get user input as string and assign to variable.
-
+            Brand = Console.ReadLine();
             // Create list to hold found Appliance objects
-
+            List<Appliance> found = new List<Appliance>();
             // Iterate through loaded appliances
+            foreach (Appliance appliances in Appliances)
+            {
                 // Test current appliance brand matches what user entered
+                if (appliances.Brand == Brand)
+                {
                     // Add current appliance in list to found list
-
-
+                    found.Add(appliances);
+                }
+            }
             // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
+            DisplayAppliancesFromList(found, 0);
         }
 
         /// <summary>
@@ -106,64 +112,92 @@ namespace ModernAppliances
         /// <param name="voltage">Vacuum voltage (or 0 for any voltage)</param>
         public override void DisplayVacuums()
         {
-            // Write "Possible options:"
 
-            // Write "0 - Any"
-            // Write "1 - Residential"
-            // Write "2 - Commercial"
+            //Romer John De Lina
+            // Completed tasks: DisplayVacuums() & Find()
+            //Displayed Vcuums appliance and done the Find() so the program can find what then user inputted
+            // Feb 11, 2024
+            //The display menu for grade
+            Console.WriteLine("Possible options: ");
+            Console.WriteLine("0 - Any");
+            Console.WriteLine("1 - Residential");
+            Console.WriteLine("2 - Commercial");
+            Console.WriteLine("Enter grade: ");
+            //user input
+            string userInput = Console.ReadLine();
 
-            // Write "Enter grade:"
-
-            // Get user input as string and assign to variable
-
-            // Create grade variable to hold grade to find (Any, Residential, or Commercial)
-
-            // Test input is "0"
-                // Assign "Any" to grade
-            // Test input is "1"
-                // Assign "Residential" to grade
-            // Test input is "2"
-                // Assign "Commercial" to grade
-            // Otherwise (input is something else)
-                // Write "Invalid option."
-
-                // Return to calling (previous) method
-                // return;
-
-            // Write "Possible options:"
-
-            // Write "0 - Any"
-            // Write "1 - 18 Volt"
-            // Write "2 - 24 Volt"
-
-            // Write "Enter voltage:"
-
-            // Get user input as string
-            // Create variable to hold voltage
-
-            // Test input is "0"
-                // Assign 0 to voltage
-            // Test input is "1"
-                // Assign 18 to voltage
-            // Test input is "2"
-                // Assign 24 to voltage
-            // Otherwise
-                // Write "Invalid option."
-                // Return to calling (previous) method
-                // return;
-
-            // Create found variable to hold list of found appliances.
-
-            // Loop through Appliances
-                // Check if current appliance is vacuum
-                    // Down cast current Appliance to Vacuum object
-                    // Vacuum vacuum = (Vacuum)appliance;
-
-                    // Test grade is "Any" or grade is equal to current vacuum grade and voltage is 0 or voltage is equal to current vacuum voltage
-                        // Add current appliance in list to found list
-
-            // Display found appliances
-            // DisplayAppliancesFromList(found, 0);
+            //switch case for the options
+            int grade;
+            if (int.TryParse(userInput, out grade))
+            {
+                switch (grade)
+                {
+                    case 0:
+                        Console.WriteLine("Any");
+                        break;
+                    case 1:
+                        Console.WriteLine("Residential");
+                        break;
+                    case 2:
+                        Console.WriteLine("Commercial");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        return;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number. ");
+                return;
+            }
+            //The display menu for voltage
+            Console.WriteLine("Possible options: ");
+            Console.WriteLine("0 - Any");
+            Console.WriteLine("1 - 18 Volt");
+            Console.WriteLine("2 - 24 Volt");
+            Console.WriteLine("Enter voltage: ");
+            string userInput2 = Console.ReadLine();
+            //switch case for the options
+            int voltage;
+            if (int.TryParse(userInput2, out voltage))
+            {
+                switch (voltage)
+                {
+                    case 0:
+                        Console.WriteLine("Any voltage");
+                        break;
+                    case 1:
+                        Console.WriteLine("18 voltage");
+                        break;
+                    case 2:
+                        Console.WriteLine("24 voltage");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number. ");
+                return;
+            }
+            //List 
+            List<Appliance> found = new List<Appliance>();
+            foreach (Appliance appliance in Appliances)
+            {
+                if (appliance is Vacuum)
+                {
+                    Vacuum vacuum = (Vacuum)appliance;
+                    if (grade == 0 || (grade.Equals(vacuum.Grade) && vacuum.Voltage == 0) || (vacuum.Voltage == voltage))
+                    {
+                        found.Add(appliance);
+                    }
+                }
+            }
+            //Display
+            DisplayAppliancesFromList(found, 0);
         }
 
         /// <summary>
